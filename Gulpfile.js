@@ -42,9 +42,13 @@ var scripts = function() {
 gulp.task('scripts', ['clean'], scripts);
 gulp.task('scripts-watch', scripts);
 
+var options = {
+    remoteUrl: "git@github.com:azmikamis/azmikamis.github.io.git",
+    branch: "master"
+};
 gulp.task('deploy', function() {
   return gulp.src('./build/**/*')
-    .pipe(ghPages());
+    .pipe(ghPages(options));
 });
 
 gulp.task('server', function () {
